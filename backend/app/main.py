@@ -1,4 +1,6 @@
+# backend/app/main.py
 from fastapi import FastAPI
+from app.api.routes.books import router as books_router
 
 app = FastAPI(
     title="My WebApp API",
@@ -6,6 +8,8 @@ app = FastAPI(
     version="0.1.0",
 )
 
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to My WebApp API 🚀"}
+@app.get("/health", tags=["health"])
+def health():
+    return {"status": "ok"}
+
+app.include_router(books_router)
