@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary   # Postgres driver
+python-dotenv     # Manage environment variables
+alembic           # For DB migrations
+pydantic          # (already a dependency of FastAPI, but useful to pin later)
